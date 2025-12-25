@@ -8,7 +8,7 @@ TOKEN = os.getenv('TELEGRAM_TOKEN')
 CHAT_ID = os.getenv('TELEGRAM_CHAT_ID')
 
 # List your stocks here!
-STOCKS = ["AAPL", "TSLA", "NVDA", "BTC-USD"] 
+STOCKS = ["AAL", "PYPL", "CHTR"] 
 
 def send_alert(msg):
     requests.get(f"https://api.telegram.org/bot{TOKEN}/sendMessage?chat_id={CHAT_ID}&text={msg}")
