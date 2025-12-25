@@ -1,0 +1,30 @@
+name: Stock Alert Bot
+
+on:
+  schedule:
+    # This runs every 15 minutes, Monday-Friday, from 14:00 to 21:00 UTC
+    # (Matches 9 AM - 4 PM EST)
+    - cron: '*/15 14-21 * * 1-5'
+  workflow_dispatch: # This button lets you run it manually anytime
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+
+      - name: Install Dependencies
+        run: |
+          pip install yfinance pandas_ta requests
+
+      - name: Run Alert Script
+        env:
+          TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: python bot.py
