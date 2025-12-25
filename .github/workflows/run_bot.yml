@@ -2,8 +2,13 @@ name: Stock Alert Bot
 
 on:
   schedule:
-    - cron: '*/15 14-21 * * 1-5'
-  workflow_dispatch: 
+    # 1. Runs every 5 mins from 14:30 to 14:55 UTC (9:30 AM - 9:55 AM EST)
+    - cron: '30-55/5 14 * * 1-5'
+    
+    # 2. Runs every 5 mins from 15:00 to 21:00 UTC (10:00 AM - 4:00 PM EST)
+    - cron: '*/5 15-21 * * 1-5'
+  
+  workflow_dispatch: # This allows you to run it manually for testing 
 
 jobs:
   build:
