@@ -14,6 +14,7 @@ TELEGRAM_TOKEN = os.getenv('TELEGRAM_TOKEN')
 CHAT_ID = os.getenv('TELEGRAM_CHAT_ID')
 
 STOCKS = ["AAL", "PYPL"]
+# This tells the bot to look at Paper Data specifically
 client = StockHistoricalDataClient(API_KEY, SECRET_KEY)
 
 def send_alert(msg):
