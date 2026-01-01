@@ -26,7 +26,7 @@ def send_alert(msg):
 # Initialize Alpaca Client
 client = StockHistoricalDataClient(api_key=API_KEY, secret_key=SECRET_KEY)
 
-STOCKS = ["AAPL", "TSLA", "NVDA", "BTC-USD"]
+STOCKS = ["AAL", "PYPL"]
 
 print("🚀 Bot Started: Monitoring 1-minute RSI...")
 
@@ -55,9 +55,9 @@ while time.time() < timeout:
             print(f"[{datetime.now().strftime('%H:%M:%S')}] {stock}: RSI {round(current_rsi, 2)}")
 
             # Thresholds
-            if current_rsi <= 30:
+            if current_rsi <= 25:
                 send_alert(f"🟢 1m OVERSOLD: {stock} | RSI: {round(current_rsi, 2)}")
-            elif current_rsi >= 70:
+            elif current_rsi >= 85:
                 send_alert(f"🔴 1m OVERBOUGHT: {stock} | RSI: {round(current_rsi, 2)}")
 
         except Exception as e:
