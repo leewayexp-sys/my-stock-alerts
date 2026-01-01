@@ -13,7 +13,7 @@ SECRET_KEY = os.getenv('ALPACA_SECRET_KEY')
 TELEGRAM_TOKEN = os.getenv('TELEGRAM_TOKEN')
 CHAT_ID = os.getenv('TELEGRAM_CHAT_ID')
 
-STOCKS = ["AAPL", "TSLA", "NVDA"]
+STOCKS = ["AAL", "PYPL"]
 client = StockHistoricalDataClient(API_KEY, SECRET_KEY)
 
 def send_alert(msg):
