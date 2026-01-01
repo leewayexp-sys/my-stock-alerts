@@ -38,9 +38,9 @@ while time.time() < timeout:
             
             print(f"{stock} 1m RSI: {round(rsi, 2)}")
 
-            if rsi <= 30:
+            if rsi <= 25:
                 send_alert(f"🚀 REAL-TIME: {stock} is OVERSOLD! RSI: {round(rsi, 2)}")
-            elif rsi >= 70:
+            elif rsi >= 75:
                 send_alert(f"⚠️ REAL-TIME: {stock} is OVERBOUGHT! RSI: {round(rsi, 2)}")
 
         except Exception as e:
