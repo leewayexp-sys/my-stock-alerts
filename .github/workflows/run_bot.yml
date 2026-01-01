@@ -23,9 +23,7 @@ jobs:
           python-version: '3.12' # Fixed to 3.12
 
       - name: Install Dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install yfinance pandas_ta requests
+        run: pip install alpaca-py pandas_ta requests
 
       - name: Run Alert Script
         env:
